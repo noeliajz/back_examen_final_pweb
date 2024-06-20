@@ -1,4 +1,5 @@
 const express = require('express')
+const morgan = require('morgan')
 
 class Server {
     constructor() {
@@ -11,6 +12,7 @@ class Server {
 
     middlewares(){
         this.app.use(express.json())
+        this.app.use(morgan('dev'))
     }
 
     routes(){
