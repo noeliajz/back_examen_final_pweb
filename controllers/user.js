@@ -30,7 +30,7 @@ const createUser = async(req, res) => {
 
     const user = new UserModel(body);
      await user.save()
-    res.status(201).json({msg: 'Usuario creado con éxito' , user})
+    res.status(201).json({  msg: 'Usuario creado con éxito' , user})
    } catch (error) {
     console.log(error)
    }
@@ -62,6 +62,12 @@ const deleteUser =  async(req, res) => {
 
 const loginUser = async (req, res) => {
    try {
+    
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        res.status(422).json({msg: errors.array()})
+    }   
+
     const { usuario, pass } = req.body;
     const userExist = await UserModel.findOne({ usuario });
     if(!userExist){
