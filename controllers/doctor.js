@@ -17,24 +17,15 @@ const createDoctor = async(req, res) => {
     try {
         const errors = validationResult(req)
         if(!errors.isEmpty()){
-            res.status(422).json({msg: errors.array()})
+           return res.status(422).json({msg: errors.array()})
         }     
-       const body =req.body
-       const doctorExist = await DoctorModel.findOne({doctor: body.doctor})
-       if(doctorExist){
-          return res.status(400).json({msg: 'El doctor1 ya existe'})
-       }
-   
-       const salt = await bcrypt.genSaltSync()
-/*        body.pass = await bcrypt.hash(body.pass, salt)
- */   
-       const doctor = new DoctorModel(body);
-        await doctor.save()
-       res.status(201).json({  msg: 'Doctor creado con éxito' , doctor})
-      } catch (error) {
-       console.log(error)
-      }
+        const newDoctor = new DoctorModel(req.body);
+        await newDoctor.save()
+        res.status(201).json({msg: 'Se agregó nuevo doctor/a'})
+    } catch(error){
+        console.log(error)
     }
+}
 
 const updateDoctor = async(req, res) => {
     try {
