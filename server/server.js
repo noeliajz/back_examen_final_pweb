@@ -19,6 +19,7 @@ class Server {
        
        this.app.use('/api/users', require('../routes/user')),
        this.app.use('/api/doctor', require('../routes/doctor'))
+       this.app.use('/api/obraSocial', require('../routes/obraSocial'))
 
     }
     listen() {
