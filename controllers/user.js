@@ -1,6 +1,7 @@
 const UserModel = require('../modals/user')
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
+const jwt = require('jsonwebtoken')
 
 const getAllUser= async(req, res) => {
     const allUsers= await UserModel.find()
@@ -61,30 +62,53 @@ const deleteUser =  async(req, res) => {
 
 
 const loginUser = async (req, res) => {
-   try {
-    
-    const errors = validationResult(req)
-    if(!errors.isEmpty()){
-        res.status(422).json({msg: errors.array()})
-    }   
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ msg: errors.array() });
+    }
 
     const { usuario, pass } = req.body;
+    console.log(req.body)
     const userExist = await UserModel.findOne({ usuario });
-    if(!userExist){
-        return res.status(400).json({msg: 'El usuario no existe'})
+    console.log(userExist)
+    if (!userExist) {
+      return res.status(400).json({ msg: "El usuario no existe" });
     }
-  const passCheck = await bcrypt.compare(pass, userExist.pass )
-  if(passCheck){
-     res.status(200).json({msg: 'Usuario logueado'})
-  }else{
-    res.status(422).json({msg: 'Usuario y/o contraseña incorrecto'})
+    const passCheck = await bcrypt.compare(pass, userExist.pass);
 
+    if (passCheck) {
+      const jwtPayload = {
+        usuario: {
+          id: userExist._id,
+          username: userExist.usuario,
+        },
+      };
+      console.log(userExist);
+      const token = jwt.sign(jwtPayload, process.env.SECRET_key);
+      userExist.token = token;
+      
+      res.status(200).json({ msg: "Usuario logueado" , userExist});
+    } else {
+      res.status(422).json({ msg: "Usuario y/o contraseña incorrecto" });
+    }
+  } catch (error) {
+    console.log(error);
   }
-   } catch (error) {
-    console.log(error)
-   }
-         
-        
+    
+  };
+
+  const logoutUser = async (req, res) => {
+    const userId = await UserModel.findOne({ _id: req.userLoginId });
+    console.log(userId);
+    userId.token = "";
+    const userLogout = await UserModel.findByIdAndUpdate(
+      { _id: req.userLoginId },
+      userId,
+      { new: true }
+    );
+    console.log(userLogout);
+    res.status(200).json({ msg: "Usuario deslogueado" });
   };
 
 module.exports ={
@@ -93,5 +117,6 @@ module.exports ={
     createUser,
     updateUser,
     deleteUser,
-    loginUser
+    loginUser,
+    logoutUser
 }

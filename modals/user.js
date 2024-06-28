@@ -1,21 +1,32 @@
-const mongoose = require('mongoose')
+const {Schema, model} = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
-   usuario: String,
+const UserSchema = new Schema({
    usuario: {
       type: String,
       unique: true,
       require: true
    },
-   pass: String,
    pass: {
       type: String,
       unique: true,
       require: true
    },
-   obraSocial: String
+   obraSocial: String,
+   token: {
+      type: String,
+      default: ''
+    },
+   role: {
+      type: String,
+      default: 'user'
+   }
 })
 
-const userModel = mongoose.model('users', UserSchema);
+UserSchema.methods.toJSON = function (){
+   const { __v, pass, ...usuario } = this.toObject()
+   return usuario
+}
+
+const userModel = model('users', UserSchema);
 
 module.exports = userModel

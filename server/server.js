@@ -5,7 +5,6 @@ class Server {
     constructor() {
       this.app = express()
       this.port = process.env.PORT || 8080
-      this.path= '/api'
       this.middlewares()
       this.routes()
     }
@@ -13,14 +12,21 @@ class Server {
     middlewares(){
         this.app.use(express.json())
         this.app.use(morgan('dev'))
+      
     }
 
     routes(){
-       this.app.use('/api', require('../routes/user'))
+       
+       this.app.use('/api/users', require('../routes/user')),
+       this.app.use('/api/doctor', require('../routes/doctor'))
+
     }
     listen() {
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: true }))
         this.app.listen(this.port, () => {
             console.log('Servidor en linea', this.port)
+      
         })
     }
 }
