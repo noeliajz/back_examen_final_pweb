@@ -26,8 +26,8 @@ const createDoctor = async(req, res) => {
        }
    
        const salt = await bcrypt.genSaltSync()
-       body.pass = await bcrypt.hash(body.pass, salt)
-   
+/*        body.pass = await bcrypt.hash(body.pass, salt)
+ */   
        const doctor = new DoctorModel(body);
         await doctor.save()
        res.status(201).json({  msg: 'Doctor creado con éxito' , doctor})
