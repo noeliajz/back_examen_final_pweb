@@ -21,13 +21,15 @@ class Server {
        this.app.use('/api/doctor', require('../routes/doctor'))
        this.app.use('/api/obraSocial', require('../routes/obraSocial'))
        this.app.use('/api/sanatorio', require('../routes/sanatorio'))
+       this.app.use('/api/hospital', require('../routes/hospital'))
+       this.app.use('/api/estudioMedico', require('../routes/estudioMedico'))
 
     }
     listen() {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }))
         this.app.listen(this.port, () => {
-            console.log('Servidor en linea', this.port)
+        console.log('Servidor en linea', this.port)
       
         })
     }
