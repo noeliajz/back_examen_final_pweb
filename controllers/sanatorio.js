@@ -1,4 +1,4 @@
-const sanatorioModel = require('../modals/sanatorio')
+const sanatorioModel = require('../models/sanatorio')
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
 

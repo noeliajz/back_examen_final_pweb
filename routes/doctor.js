@@ -7,10 +7,10 @@ const {getAllDoctor, getOneDoctor, createDoctor, updateDoctor, deleteDoctor} = r
 router.get('/', getAllDoctor ) 
 router.get('/:id', getOneDoctor ) 
 router.post('/',[
-    check('nombre', 'El campo nombre esta vacio').notEmpty(),
+     check('nombre', 'El campo nombre esta vacio').notEmpty(),
     check('nombre', 'El minimo es de 3 caracteres').isLength({min: 3}),
     check('apellido', 'El campo apellido esta vacio').notEmpty(),
-    check('apellido', 'El minimo es de 4 caracteres').isLength({min: 4}),
+    check('apellido', 'El minimo es de 4 caracteres').isLength({min: 4}), 
     check('notas', 'El mínimo es de 4 caracteres').isLength({ min:4 }),
     check('especialidad', 'El campo especialidad esta vacio').notEmpty(),
     check('especialidad', 'El mínimo es de 4 caracteres').isLength({ min:4 }),

@@ -19,8 +19,13 @@ const UserSchema = new Schema({
    role: {
       type: String,
       default: 'user'
-   }
+   },
+   idAgenda: {
+      type: String
+    }
 })
+
+
 
 UserSchema.methods.toJSON = function (){
    const { __v, pass, ...usuario } = this.toObject()

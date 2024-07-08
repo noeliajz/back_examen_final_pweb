@@ -1,4 +1,4 @@
-const obraSocialModel = require('../modals/obraSocial')
+const obraSocialModel = require('../models/obraSocial')
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
 
