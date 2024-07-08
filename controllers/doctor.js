@@ -1,4 +1,4 @@
-const DoctorModel = require('../modals/doctor')
+const DoctorModel = require('../models/doctor')
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
 

@@ -5,7 +5,7 @@ const { check } = require('express-validator')
 const {getAllUser, getOneUser, createUser, updateUser, deleteUser, loginUser, logoutUser} = require('../controllers/user')
 const auth = require('../middleware/auth')
 
-router.get('/logout', auth('user'), logoutUser)
+router.get('/logout',  auth('user'),  logoutUser)
 router.get('/', getAllUser ) 
 router.get('/:id', auth('admin'), getOneUser ) 
  router.post('/',[

@@ -1,4 +1,4 @@
-const estudioMedicoModel = require('../modals/estudioMedico')
+const estudioMedicoModel = require('../models/estudioMedico')
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
 

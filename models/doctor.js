@@ -1,6 +1,7 @@
 const {Schema, model} = require('mongoose')
 
 const DoctorSchema = new Schema({
+   
    nombre: {
       type: String,
       require: true
@@ -18,7 +19,9 @@ const DoctorSchema = new Schema({
       type: String,
       require: true
    },
+
 })
+
 
 DoctorSchema.methods.toJSON = function (){
    const {__v, ...doctor } = this.toObject()
