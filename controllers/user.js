@@ -2,6 +2,8 @@ const UserModel = require('../models/user')
 const bcrypt = require('bcryptjs')
 const {validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
+const AgendaModel = require("../models/agenda")
+const transporter = require("../middleware/nodemailer")
 
 const getAllUser= async(req, res) => {
     const allUsers= await UserModel.find()
@@ -30,8 +32,25 @@ const createUser = async(req, res) => {
     body.pass = await bcrypt.hash(body.pass, salt)
 
     const user = new UserModel(body);
+     const agenda = new AgendaModel()
+     agenda.idUsuario = user._id
+     user.idAgenda = agenda._id
+
+    /* mail */
+      await transporter.sendMail({
+      from: '" Bienvenido a Salud organizada " <noeliajudithzelaya@gmail.com>', // sender address
+      to: "noeliajudithzelaya@gmail.com", // list of receivers
+      subject: "Bienvenidos ✔", // Subject line
+      html: "<b>Gracias por registrarte</b>", // html body
+    });    
+    
+    /* -- */
+
+     console.log(agenda)
+     console.log(user)
      await user.save()
-    res.status(201).json({  msg: 'Usuario creado con éxito' , user})
+     await agenda.save()
+     res.status(201).json({  msg: 'Usuario creado con éxito' , user})
    } catch (error) {
     console.log(error)
    }
