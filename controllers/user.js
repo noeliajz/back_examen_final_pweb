@@ -106,7 +106,7 @@ const loginUser = async (req, res) => {
       console.log(userExist);
       const token = jwt.sign(jwtPayload, process.env.SECRET_key);
       userExist.token = token;
-      
+      userExist.save()
       res.status(200).json({ msg: "Usuario logueado" , userExist});
     } else {
       res.status(422).json({ msg: "Usuario y/o contraseña incorrecto" });
@@ -118,16 +118,17 @@ const loginUser = async (req, res) => {
   };
 
   const logoutUser = async (req, res) => {
-    const userId = await UserModel.findOne({ _id: req.userLoginId });
+     const userId = await UserModel.findOne({ _id: req.body.userLoginId });
     console.log(userId);
     userId.token = "";
     const userLogout = await UserModel.findByIdAndUpdate(
-      { _id: req.userLoginId },
+      { _id: req.body.userLoginId },
       userId,
-      { new: true }
-    );
+      { new: true } 
+     );
+
     console.log(userLogout);
-    res.status(200).json({ msg: "Usuario deslogueado" });
+    res.status(200).json({ msg: "Usuario deslogueado" }); 
   };
 
 module.exports ={
