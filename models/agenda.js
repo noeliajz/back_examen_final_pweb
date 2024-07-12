@@ -4,7 +4,8 @@ const AgendaSchema = new Schema({
     idUsuario: {
         type: String
     },
-    doctors: []
+    doctors: [],
+    estudioMedico: []
 })
 
 AgendaSchema.methods.toJSON = function(){

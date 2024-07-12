@@ -1,5 +1,6 @@
 const AgendaModel = require("../models/agenda")
 const DoctorModel = require("../models/doctor")
+const EstudioMedicoModel= require("../models/estudioMedico")
 
 const getOneAgendaAllDoctor = async (req, res) => {
     try {
@@ -10,7 +11,7 @@ const getOneAgendaAllDoctor = async (req, res) => {
     }
 }
 
-const addDoctorAgenda = async (req, res) => {
+ const addDoctorAgenda = async (req, res) => {
     try {
       console.log(req.params.idAgenda)
        const getAgenda = await AgendaModel.findOne({_id: req.params.idAgenda}) 
@@ -30,7 +31,27 @@ const addDoctorAgenda = async (req, res) => {
       console.log(error)
     }
   }
+ 
+  const addEstudioMedicoAgenda = async (req, res) => {
+    try {
+      console.log(req.params.idAgenda)
+       const getAgenda = await AgendaModel.findOne({_id: req.params.idAgenda}) 
+       const getEst = await EstudioMedicoModel.findOne({_id: req.params.idEst})
+       console.log(getAgenda)
 
+      const estExist = getAgenda.estudioMedico.filter((doc) => doc._id == req.params.idEst)
+      if(estExist.length > 0){
+        return res.status(400).json({msg: 'Estudio medico duplicado en su carrito', status: 400})
+      }
+
+       getAgenda.estudioMedico.push(getEst) 
+       await getAgenda.save() 
+                                   
+       res.status(200).json({msg: 'El estudio medico se cargo en la agenda correctamente', getAgenda})
+      } catch (error) {
+      console.log(error)
+    }
+  }
   const createAgenda = async (req, res) => {
     try {
         const newAgenda = new AgendaModel(req.body)
@@ -46,7 +67,8 @@ const addDoctorAgenda = async (req, res) => {
 
 module.exports = {
     getOneAgendaAllDoctor,
-    addDoctorAgenda,
-    createAgenda
+    addDoctorAgenda, 
+    createAgenda,
+    addEstudioMedicoAgenda
     
 }
