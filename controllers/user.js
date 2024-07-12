@@ -50,7 +50,7 @@ const createUser = async(req, res) => {
      console.log(user)
      await user.save()
      await agenda.save()
-     res.status(201).json({  msg: 'Usuario creado con éxito' , user})
+     body.res.status(201).json({  msg: 'Usuario creado con éxito' , user})
    } catch (error) {
     console.log(error)
    }

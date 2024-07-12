@@ -14,6 +14,8 @@ router.get('/:id', auth('admin'), getOneUser )
     check('usuario', 'El campo USUARIO debe ser del tipo MAIL').isEmail(),
     check('pass', 'El campo contraseña esta vacio').notEmpty(),
     check('pass', 'El minimo es de 4 caracteres').isLength({min: 4}),
+    check('repeatPass', 'El campo repetir contraseña esta vacio').notEmpty(),
+    check('repeatPass', 'El minimo es de 4 caracteres').isLength({min: 4}),
     check('obraSocial', 'El mínimo es de 3 caracteres').isLength({ min:3 })
 
  ] , createUser) 
