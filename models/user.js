@@ -8,7 +8,6 @@ const UserSchema = new Schema({
    },
    pass: {
       type: String,
-      unique: true,
       require: true
    },
    obraSocial: String,
@@ -23,6 +22,7 @@ const UserSchema = new Schema({
    idAgenda: {
       type: String
     }
+  
 })
 
 
