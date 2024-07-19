@@ -3,9 +3,9 @@ const { getOneAgendaAllDoctor, addEstudioMedicoAgenda, createAgenda} = require('
 const router = Router()
 const auth = require('../middleware/auth')
 
-router.get('/:id',  getOneAgendaAllDoctor)
-router.post('/:idAgenda/:idDoc', addEstudioMedicoAgenda)
-router.post('/:idAgenda/:idEst', addEstudioMedicoAgenda)
+router.get('/:id', auth('user') , getOneAgendaAllDoctor)
+router.post('/:idAgenda/:idDoc', auth('user'), addEstudioMedicoAgenda)
+router.post('/:idAgenda/:idEst', auth('user'),addEstudioMedicoAgenda)
 router.post('/',  createAgenda)
 
 module.exports = router

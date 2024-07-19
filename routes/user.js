@@ -6,7 +6,7 @@ const {getAllUser, getOneUser, createUser, updateUser, deleteUser, loginUser, lo
 const auth = require('../middleware/auth')
 
 router.put('/logout',  auth('user'),  logoutUser)
-router.get('/', getAllUser ) 
+router.get('/', auth('admin'), getAllUser ) 
 router.get('/:id', auth('admin'), getOneUser ) 
  router.post('/',[
     check('usuario', 'El campo usuario esta vacio').notEmpty(),
@@ -25,9 +25,9 @@ router.post('/login', [
     check('usuario', 'El campo USUARIO debe ser del tipo MAIL').isEmail(),
     check('pass', 'El campo contraseña esta vacío').notEmpty(), 
 ], loginUser)
-router.put('/:id',[
+router.put('/:id' , [
     check('id', 'El Id no corresponde a un Id de Mongo').isMongoId()
-], updateUser)
-router.delete('/:id', deleteUser )
+], auth('admin'),  updateUser)
+router.delete('/:id', auth('admin') , deleteUser )
 
 module.exports = router
