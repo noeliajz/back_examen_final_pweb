@@ -18,12 +18,7 @@ const DoctorSchema = new Schema({
    consultorio: {
       type: String,
       require: true
-   },
-   usuario: {
-      type: Schema.Types.ObjectId,
-      ref: "user",
-      required: [true, "El usuario es requerido"],
-    },
+   }
 })
 
 
