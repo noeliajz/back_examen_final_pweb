@@ -18,7 +18,10 @@ const DoctorSchema = new Schema({
    consultorio: {
       type: String,
       require: true
-   }
+   },
+   turnos: [{
+   type: Date,
+}]
 })
 
 

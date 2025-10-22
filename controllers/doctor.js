@@ -50,6 +50,34 @@ const deleteDoctor =  async(req, res) => {
 
 /* fin del abm */
 
+const agregarTurnoDoctor = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { turno } = req.body; // espera una fecha (ej: "2025-11-05T10:00:00Z")
+
+    // validar que haya un turno
+    if (!turno) {
+      return res.status(400).json({ msg: "Debe enviar una fecha de turno" });
+    }
+
+    // buscar el doctor
+    const doctor = await DoctorModel.findById(id);
+    if (!doctor) {
+      return res.status(404).json({ msg: "Doctor no encontrado" });
+    }
+
+    // agregar turno
+    doctor.turnos.push(new Date(turno));
+
+    // guardar
+    await doctor.save();
+
+    res.status(200).json({ msg: "Turno agregado correctamente", doctor });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Error al agregar turno" });
+  }
+};
 
 
 
@@ -59,4 +87,5 @@ module.exports ={
     createDoctor,
     updateDoctor,
     deleteDoctor,
+    agregarTurnoDoctor
 }

@@ -2,7 +2,8 @@ const express = require('express')
 const { check } = require('express-validator')
 const router = express.Router()
 
-const {getAllDoctor, getOneDoctor, createDoctor, updateDoctor, deleteDoctor} = require('../controllers/doctor')
+const { getAllDoctor, getOneDoctor, createDoctor, 
+    updateDoctor, deleteDoctor, agregarTurnoDoctor } = require('../controllers/doctor');
 
 router.get('/', getAllDoctor ) 
 router.get('/:id', getOneDoctor ) 
@@ -23,5 +24,7 @@ router.put('/:id',[
     check('id', 'El Id no corresponde a un Id de Mongo').isMongoId()
 ], updateDoctor)
 router.delete('/:id', deleteDoctor )
+
+router.post('/:id/turnos', agregarTurnoDoctor)
 
 module.exports = router
