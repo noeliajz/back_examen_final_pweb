@@ -1,5 +1,6 @@
 const transporter = require('../middleware/nodemailer');
 const { getMaxListeners } = require('../models/user');
+const { format } = require('date-fns'); // Instalar: npm install date-fns
 
 const sendMailRegisterUser = async (toUser) => {
     await transporter.sendMail({
@@ -33,9 +34,39 @@ const sendMailRegisterUser = async (toUser) => {
       });
 } */
 
+// ******************************************************
+// ** NUEVA FUNCIÓN PARA ENVIAR EL RECORDATORIO **
+// ******************************************************
+const sendMailReminder = async ({ to, doctorName, doctorSpecialty, turns }) => {
+    
+    // 1. Formatear los turnos
+    const formattedTurns = turns.map(turno => 
+        `<li>Fecha y Hora: ${new Date(turno).toLocaleString("es-AR", { dateStyle: "short", timeStyle: "short" })}</li>`
+    ).join('');
+
+    await transporter.sendMail({
+        from: '"SALUD ORGANIZADA - Recordatorio" <saludorganizada@gmail.com>',
+        to: to, // El email del administrador logueado
+        subject: `🔔 Recordatorio de Turnos para Dr/a. ${doctorName}`,
+        html: ` 
+            <div>
+                <h3>Recordatorio de Turnos Asignados</h3>
+                <p>Estimado/a Administrador/a,</p>
+                <p>La siguiente es la lista de turnos para el **Dr/a. ${doctorName}** (${doctorSpecialty}):</p>
+                
+                <ul style="list-style: none; padding-left: 0;">
+                    ${formattedTurns}
+                </ul>
+                
+                <p>Favor de revisar la agenda.</p>
+                <p>Atentamente, Salud Organizada.</p>
+            </div>`
+    });
+};
+
 module.exports = {
-    sendMailRegisterUser
- /*    sendMailUserPay */
+    sendMailRegisterUser,
+    sendMailReminder // Exporta la nueva función
 }
 
 

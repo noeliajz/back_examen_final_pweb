@@ -1,6 +1,7 @@
 const express = require('express')
 const { check } = require('express-validator')
 const router = express.Router()
+const { sendMailReminder } = require('../helpers/mail');
 
 const { getAllDoctor, getOneDoctor, createDoctor, 
     updateDoctor, deleteDoctor, agregarTurnoDoctor } = require('../controllers/doctor');
@@ -26,5 +27,18 @@ router.put('/:id',[
 router.delete('/:id', deleteDoctor )
 
 router.post('/:id/turnos', agregarTurnoDoctor)
+
+router.post('/send-reminder', async (req, res) => {
+    try {
+        const { to, doctorName, doctorSpecialty, turns } = req.body;
+        
+        await sendMailReminder({ to, doctorName, doctorSpecialty, turns });
+
+        res.status(200).json({ success: true, message: 'Recordatorio enviado con éxito.' });
+    } catch (error) {
+        console.error('Error en la ruta de recordatorio:', error);
+        res.status(500).json({ success: false, message: 'Fallo el envío del recordatorio.' });
+    }
+});
 
 module.exports = router
