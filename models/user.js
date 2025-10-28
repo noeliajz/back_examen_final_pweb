@@ -21,6 +21,9 @@ const UserSchema = new Schema({
    },
    idAgenda: {
       type: String
+    },
+    telefono: {
+      type: Number
     }
   
 })

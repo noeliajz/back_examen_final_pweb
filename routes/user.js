@@ -16,8 +16,10 @@ router.get('/:id',  getOneUser )
     check('pass', 'El minimo es de 4 caracteres').isLength({min: 4}),
     check('repeatPass', 'El campo repetir contraseña esta vacio').notEmpty(),
     check('repeatPass', 'El minimo es de 4 caracteres').isLength({min: 4}),
-    check('obraSocial', 'El mínimo es de 3 caracteres').isLength({ min:3 })
-  
+    check('obraSocial', 'El mínimo es de 3 caracteres').isLength({ min:3 }),
+    check('telefono', 'el telefono debe ser numerico').isNumeric(),
+    check('telefono', 'El minimo es de 9 caracteres').isLength({min: 9}),
+    check('telefono', 'El maximo es de 10 caracteres').isLength({ max:10 }),
  ] , createUser) 
 router.post('/login', [
      check('usuario', 'El campo USUARIO esta vacío').notEmpty(),
