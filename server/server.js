@@ -25,6 +25,7 @@ class Server {
        this.app.use('/api/hospital', require('../routes/hospital'))
        this.app.use('/api/estudioMedico', require('../routes/estudioMedico'))
        this.app.use('/api/agenda', require('../routes/agenda'))
+       this.app.use('/api/reportes', require('../routes/reportes'))
 
     }
     listen() {
