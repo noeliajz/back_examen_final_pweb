@@ -12,7 +12,7 @@ const whatsappRoutes = require('../routes/whatsapp');
 class Server {
   constructor() {
     this.app = express();
-    this.port = process.env.PORT || 6000;
+    this.port = process.env.PORT || 8080;
 
     // Inicializaciones
     this.middlewares();
