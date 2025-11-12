@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Doctor = require("../models/doctor");
+const { getReporteObrasSociales } = require("../controllers/reportes");
 
 // GET /api/reportes/dashboard
 router.get("/dashboard", async (req, res) => {
@@ -42,5 +43,9 @@ router.get("/dashboard", async (req, res) => {
     res.status(500).json({ message: "Error en el servidor" });
   }
 });
+
+// Nueva ruta: reporte de obras sociales
+router.get('/obras-sociales', getReporteObrasSociales);
+
 
 module.exports = router;
