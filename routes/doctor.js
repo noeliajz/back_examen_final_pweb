@@ -11,11 +11,16 @@ const {
     deleteDoctor, 
     agregarTurnoDoctor,
     // Se agrega el nuevo controlador para la asistencia
-    marcarAsistenciaTurno 
+    marcarAsistenciaTurno ,
+    buscarDoctor
 } = require('../controllers/doctor');
 
 // Rutas GET
 router.get('/', getAllDoctor ) 
+// Ruta GET para buscar doctor por nombre o apellido
+router.get('/buscar', buscarDoctor);
+
+
 router.get('/:id', getOneDoctor ) 
 
 // Ruta POST para crear doctor (con validaciones)
@@ -60,5 +65,6 @@ router.post('/send-reminder', async (req, res) => {
         res.status(500).json({ success: false, message: 'Fallo el envío del recordatorio.' });
     }
 });
+
 
 module.exports = router

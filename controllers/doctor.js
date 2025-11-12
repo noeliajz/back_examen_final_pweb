@@ -191,6 +191,44 @@ const marcarAsistenciaTurno = async (req, res) => {
     }
 };
 
+// =============================================
+// 🔍 Buscar doctor por nombre o apellido
+// =============================================
+const buscarDoctor = async (req, res) => {
+    try {
+        const { q } = req.query;
+
+        if (!q || q.trim() === '') {
+            return res.status(400).json({ msg: 'Debe proporcionar un término de búsqueda.' });
+        }
+
+        // Creamos la regex (insensible a mayúsculas)
+        const regex = new RegExp(q, 'i');
+
+        // Log para debug
+        console.log(`🩺 Buscando doctores con: ${q}`);
+
+        // Buscamos doctores que coincidan por nombre o apellido
+        const doctores = await DoctorModel.find({
+            $or: [
+                { nombre: { $regex: regex } },
+                { apellido: { $regex: regex } }
+            ]
+        }).lean(); // .lean() devuelve objetos JS planos, evita errores con toObject()
+
+        // Si no hay resultados
+        if (!doctores || doctores.length === 0) {
+            return res.status(404).json({ msg: 'No se encontraron doctores con ese criterio.' });
+        }
+
+        res.status(200).json({ msg: 'Doctores encontrados', doctores });
+
+    } catch (error) {
+        console.error('❌ Error al buscar doctor:', error.message);
+        res.status(500).json({ msg: 'Error interno al buscar doctor.', error: error.message });
+    }
+};
+
 
 module.exports ={
     getAllDoctor, 
@@ -199,5 +237,6 @@ module.exports ={
     updateDoctor,
     deleteDoctor,
     agregarTurnoDoctor,
-    marcarAsistenciaTurno
+    marcarAsistenciaTurno,
+    buscarDoctor
 }

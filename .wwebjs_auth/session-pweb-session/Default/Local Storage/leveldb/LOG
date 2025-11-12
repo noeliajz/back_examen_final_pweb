@@ -1,3 +1,6 @@
-2025/11/10-20:53:23.781 2cd8 Reusing MANIFEST C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\Local Storage\leveldb/MANIFEST-000001
-2025/11/10-20:53:23.782 2cd8 Recovering log #4
-2025/11/10-20:53:23.783 2cd8 Reusing old log C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\Local Storage\leveldb/000004.log 
+2025/11/12-19:38:33.828 1434 Reusing MANIFEST C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\Local Storage\leveldb/MANIFEST-000001
+2025/11/12-19:38:33.829 1434 Recovering log #4
+2025/11/12-19:38:33.830 1434 Reusing old log C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\Local Storage\leveldb/000004.log 
+2025/11/12-19:40:34.496 1434 Level-0 table #8: started
+2025/11/12-19:40:34.500 1434 Level-0 table #8: 16202 bytes OK
+2025/11/12-19:40:34.503 1434 Delete type=0 #4
