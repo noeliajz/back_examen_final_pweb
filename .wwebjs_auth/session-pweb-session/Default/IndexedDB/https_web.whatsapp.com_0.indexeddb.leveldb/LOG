@@ -1,47 +1,38 @@
-2025/11/12-20:36:20.895 2684 Reusing MANIFEST C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/11/12-20:36:20.896 2684 Recovering log #954
-2025/11/12-20:36:20.926 2684 Reusing old log C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000954.log 
-2025/11/12-20:36:25.162 1228 Compacting 1@0 + 1@1 files
-2025/11/12-20:36:25.331 1228 Generated table #957@0: 11382 keys, 273654 bytes
-2025/11/12-20:36:25.337 1228 Generated table #958@0: 295 keys, 8550 bytes
-2025/11/12-20:36:25.337 1228 Compacted 1@0 + 1@1 files => 282204 bytes
-2025/11/12-20:36:25.338 1228 compacted to: files[ 0 2 16 0 0 0 0 ]
-2025/11/12-20:36:25.603 154 Level-0 table #960: started
-2025/11/12-20:36:25.621 154 Level-0 table #960: 240368 bytes OK
-2025/11/12-20:36:25.623 154 Delete type=2 #943
-2025/11/12-20:36:25.623 154 Delete type=0 #954
-2025/11/12-20:36:25.623 154 Delete type=2 #955
-2025/11/12-20:36:25.643 154 Manual compaction at level-0 from '\x00*\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00+\x00\x00\x00' @ 0 : 0; will stop at '\x00*\x00\x00\x05' @ 2794897 : 1
-2025/11/12-20:36:25.643 154 Compacting 1@0 + 2@1 files
-2025/11/12-20:36:25.715 154 Generated table #961@0: 13366 keys, 244123 bytes
-2025/11/12-20:36:25.722 154 Generated table #962@0: 295 keys, 8550 bytes
-2025/11/12-20:36:25.722 154 Compacted 1@0 + 2@1 files => 252673 bytes
-2025/11/12-20:36:25.723 154 compacted to: files[ 0 2 16 0 0 0 0 ]
-2025/11/12-20:36:25.724 154 Delete type=2 #960
-2025/11/12-20:36:25.725 154 Manual compaction at level-0 from '\x00*\x00\x00\x05' @ 2794897 : 1 .. '\x00+\x00\x00\x00' @ 0 : 0; will stop at (end)
-2025/11/12-20:36:31.713 1f84 Compacting 1@1 + 10@2 files
-2025/11/12-20:36:31.974 1f84 Generated table #963@1: 59954 keys, 2233641 bytes
-2025/11/12-20:36:32.121 1f84 Generated table #964@1: 16673 keys, 2173004 bytes
-2025/11/12-20:36:32.212 1f84 Generated table #965@1: 2688 keys, 2159987 bytes
-2025/11/12-20:36:32.308 1f84 Generated table #966@1: 2686 keys, 2155304 bytes
-2025/11/12-20:36:32.398 1f84 Generated table #967@1: 2086 keys, 2149308 bytes
-2025/11/12-20:36:32.508 1f84 Generated table #968@1: 2641 keys, 2151097 bytes
-2025/11/12-20:36:32.700 1f84 Generated table #969@1: 28709 keys, 2242011 bytes
-2025/11/12-20:36:32.914 1f84 Generated table #970@1: 27248 keys, 2264091 bytes
-2025/11/12-20:36:33.087 1f84 Generated table #971@1: 15895 keys, 2168372 bytes
-2025/11/12-20:36:33.151 1f84 Generated table #972@1: 7793 keys, 1268254 bytes
-2025/11/12-20:36:33.151 1f84 Compacted 1@1 + 10@2 files => 20965069 bytes
-2025/11/12-20:36:33.153 1f84 compacted to: files[ 0 1 16 0 0 0 0 ]
-2025/11/12-20:36:33.154 1f84 Delete type=2 #944
-2025/11/12-20:36:33.154 1f84 Delete type=2 #945
-2025/11/12-20:36:33.154 1f84 Delete type=2 #946
-2025/11/12-20:36:33.154 1f84 Delete type=2 #947
-2025/11/12-20:36:33.154 1f84 Delete type=2 #948
-2025/11/12-20:36:33.154 1f84 Delete type=2 #949
-2025/11/12-20:36:33.154 1f84 Delete type=2 #950
-2025/11/12-20:36:33.154 1f84 Delete type=2 #951
-2025/11/12-20:36:33.154 1f84 Delete type=2 #952
-2025/11/12-20:36:33.154 1f84 Delete type=2 #953
-2025/11/12-20:36:33.154 1f84 Delete type=2 #957
-2025/11/12-20:36:33.154 1f84 Delete type=2 #958
-2025/11/12-20:36:33.155 1f84 Delete type=2 #961
+2025/11/12-20:59:12.059 31b8 Reusing MANIFEST C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/11/12-20:59:12.059 31b8 Recovering log #1004
+2025/11/12-20:59:12.085 31b8 Reusing old log C:\Users\noe\Desktop\back_examen_final_pweb\.wwebjs_auth\session-pweb-session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001004.log 
+2025/11/12-20:59:14.497 e70 Level-0 table #1020: started
+2025/11/12-20:59:14.511 e70 Level-0 table #1020: 147908 bytes OK
+2025/11/12-20:59:14.513 e70 Delete type=0 #1004
+2025/11/12-20:59:14.520 e70 Manual compaction at level-0 from '\x00.\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00/\x00\x00\x00' @ 0 : 0; will stop at '\x00.\x00\x00\x05' @ 2833070 : 1
+2025/11/12-20:59:14.521 e70 Compacting 1@0 + 1@1 files
+2025/11/12-20:59:14.539 e70 Generated table #1021@0: 3078 keys, 68008 bytes
+2025/11/12-20:59:14.545 e70 Generated table #1022@0: 307 keys, 9284 bytes
+2025/11/12-20:59:14.545 e70 Compacted 1@0 + 1@1 files => 77292 bytes
+2025/11/12-20:59:14.547 e70 compacted to: files[ 0 2 16 0 0 0 0 ]
+2025/11/12-20:59:14.548 e70 Manual compaction at level-0 from '\x00.\x00\x00\x05' @ 2833070 : 1 .. '\x00/\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/11/12-20:59:19.832 30e8 Compacting 1@1 + 9@2 files
+2025/11/12-20:59:20.100 30e8 Generated table #1023@1: 61877 keys, 2238041 bytes
+2025/11/12-20:59:20.210 30e8 Generated table #1024@1: 17128 keys, 2172396 bytes
+2025/11/12-20:59:20.331 30e8 Generated table #1025@1: 2689 keys, 2159077 bytes
+2025/11/12-20:59:20.589 30e8 Generated table #1026@1: 2751 keys, 2155600 bytes
+2025/11/12-20:59:20.677 30e8 Generated table #1027@1: 2015 keys, 2146972 bytes
+2025/11/12-20:59:20.749 30e8 Generated table #1028@1: 2613 keys, 2152222 bytes
+2025/11/12-20:59:20.978 30e8 Generated table #1029@1: 27843 keys, 2237302 bytes
+2025/11/12-20:59:21.243 30e8 Generated table #1030@1: 27293 keys, 2266004 bytes
+2025/11/12-20:59:21.381 30e8 Generated table #1031@1: 16867 keys, 2176758 bytes
+2025/11/12-20:59:21.387 30e8 Generated table #1032@1: 2 keys, 11751 bytes
+2025/11/12-20:59:21.387 30e8 Compacted 1@1 + 9@2 files => 19716123 bytes
+2025/11/12-20:59:21.388 30e8 compacted to: files[ 0 1 17 0 0 0 0 ]
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1007
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1008
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1009
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1010
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1011
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1012
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1013
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1014
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1015
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1016
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1020
+2025/11/12-20:59:21.389 30e8 Delete type=2 #1021

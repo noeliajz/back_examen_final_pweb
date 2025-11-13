@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Doctor = require("../models/doctor");
-const { getReporteObrasSociales } = require("../controllers/reportes");
+const { getReporteObrasSociales, getReporteObrasPorDoctor } = require("../controllers/reportes");
 
 // GET /api/reportes/dashboard
 router.get("/dashboard", async (req, res) => {
@@ -47,5 +47,7 @@ router.get("/dashboard", async (req, res) => {
 // Nueva ruta: reporte de obras sociales
 router.get('/obras-sociales', getReporteObrasSociales);
 
+// 🔹 Nuevo endpoint para el reporte filtrado
+router.get("/obras-sociales/:idDoctor", getReporteObrasPorDoctor);
 
 module.exports = router;
